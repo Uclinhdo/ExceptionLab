@@ -21,7 +21,7 @@ public class InputOutputGui {
         String lastName = "";
         try{
            lastName = nameService.extractLastName(fullName);
-        }catch(YourCustomerExceptionName en){
+        }catch(FullNameException en){
            JOptionPane.showMessageDialog(null, en.getMessage());
         }
         
