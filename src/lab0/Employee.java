@@ -43,10 +43,10 @@ public class Employee {
     }
     //Validation rules:
     //daysVacation must be between 0 and 120 inclusive
-    public void setDaysVacation(int daysVacation)throws NumericRangeException {
+    public void setDaysVacation(int daysVacation)throws IllegalArgumentException {
         //need validation
         if(daysVacation <0 || daysVacation >120) {
-            throw new NumericRangeException();
+            throw new IllegalArgumentException("Argument out of range.");
         }
         this.daysVacation = daysVacation;
     }

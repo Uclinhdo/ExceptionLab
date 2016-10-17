@@ -8,6 +8,8 @@ package discountstrategy;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -27,7 +29,7 @@ public class Receipt {
     private double totalDiscount; 
     private final DecimalFormat formatter = new DecimalFormat("####.00");
     
-    public Receipt(String customerId,DataStorage ds,ReceiptOutputStrategy output) {
+    public Receipt(String customerId,DataStorage ds,ReceiptOutputStrategy output)throws DataSystemException {
         this.ds = ds;
         this.customer = ds.findValidCustomer(customerId);
         this.output = output;
@@ -57,9 +59,14 @@ public class Receipt {
         
     }
 //    
-    public final void addItemToReceipt(String productId, int qty)
+    public final void addItemToReceipt(String productId, int qty)throws DataSystemException
     {
-       LineItem item = new LineItem(productId,qty,ds);
+       LineItem item = null;
+       try{
+             item = new LineItem(productId,qty,ds);
+       }catch(DataSystemException de){
+           JOptionPane.showMessageDialog(null, de.getCause().getMessage());
+       }
        addItemtoArray(listOfitem,item);
         
     }
@@ -101,7 +108,7 @@ public class Receipt {
         this.listOfitem = listOfitem;
     }
     
-   public final void outputReceipt()
+   public final void outputReceipt() 
    {
        StringBuilder data = new StringBuilder("Welcome to Kohls Department Store \n");
        data.append("Customer Name: ").append(customer.getFullname()).append("\n");
@@ -129,7 +136,6 @@ public class Receipt {
         data.append(DASHED).append("\n");
         data.append(DASHED);
         
-        output.printReceipt(data.toString());
 
    }
     

@@ -29,6 +29,7 @@ public class Product {
     }
 
     public final void setProductId(String productId) {
+        
         this.productId = productId;
     }
 
@@ -37,6 +38,7 @@ public class Product {
     }
 
     public final void setDescription(String description) {
+        
         this.description = description;
     }
 
@@ -46,6 +48,7 @@ public class Product {
     }
     
     public final void setUnitPrice(double unitPrice) {
+       
         this.unitPrice = unitPrice;
     }
 

@@ -26,9 +26,9 @@ public class InMemoryDatabase implements DataStorage {
     
     @Override
     public final Customer findValidCustomer(String customerId)throws DataSystemException{
-        if(customerId == null || customerId.isEmpty())
+        if(customerId == null || customerId.length()== 0)
         {
-            throw new DataSystemException();
+            throw new DataSystemException(new CustomerDatabaseException());
         }
         Customer validcustomer = null;
         for(Customer customer : customers){
@@ -44,9 +44,9 @@ public class InMemoryDatabase implements DataStorage {
     
     @Override
     public final Product findValidProduct(String productId) throws DataSystemException{
-        if(productId == null || productId.isEmpty())
+        if(productId == null || productId.length() == 0)
         {
-            throw new DataSystemException();
+            throw new DataSystemException(new ProductDatabaseException());
         }
         
         Product validproduct = null;

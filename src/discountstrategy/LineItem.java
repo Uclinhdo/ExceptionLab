@@ -13,11 +13,10 @@ public class LineItem {
     private int qty;
     private Product product;
     
-    public LineItem(String productId, int qty, DataStorage ds) {
+    public LineItem(String productId, int qty, DataStorage ds) throws DataSystemException{
         this.qty = qty;
-        product = ds.findValidProduct(productId);
-       
         
+        product = ds.findValidProduct(productId);
     }
 
     public final double getDiscount()

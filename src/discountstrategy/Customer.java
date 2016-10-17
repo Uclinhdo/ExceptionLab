@@ -32,6 +32,7 @@ public class Customer {
     }
 
     public final void setPhoneNumber(String phoneNumber) {
+        
         this.phoneNumber = phoneNumber;
     }
 
@@ -42,6 +43,7 @@ public class Customer {
     }
 
     public final void setCustomerId(String customerId) {
+       
         this.customerId = customerId;
     }
 
@@ -50,6 +52,7 @@ public class Customer {
     }
 
     public final void setFirstName(String firstName) {
+       
         this.firstName = firstName;
     }
 
@@ -58,6 +61,7 @@ public class Customer {
     }
 
     public final void setLastName(String lastName) {
+       
         this.lastName = lastName;
     }
 

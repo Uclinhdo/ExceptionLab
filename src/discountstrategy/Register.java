@@ -5,6 +5,8 @@
  */
 package discountstrategy;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ldo
@@ -21,14 +23,23 @@ public class Register {
         
     }
 
-    public final void startNewSale(String customerId, DataStorage ds,ReceiptOutputStrategy output) {
-        
-       receipt = new Receipt(customerId,ds,output);
+    public final void startNewSale(String customerId, DataStorage ds,ReceiptOutputStrategy output) throws DataSystemException {
+       try{
+           receipt = new Receipt(customerId,ds,output);
+       } catch(DataSystemException de){
+           JOptionPane.showMessageDialog(null, de.getCause().getMessage());
+       }
+       
        receipt.incrementReceiptNo();
     }
 
-   public final void addProduct(String productId, int qty) {
-        receipt.addItemToReceipt(productId, qty);
+   public final void addProduct(String productId, int qty)throws DataSystemException {
+       try{
+           receipt.addItemToReceipt(productId, qty);
+       } catch(DataSystemException de){
+           JOptionPane.showMessageDialog(null, de.getCause().getMessage());
+       }
+       
     }
 
    

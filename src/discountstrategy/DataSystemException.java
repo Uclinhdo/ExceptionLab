@@ -10,7 +10,7 @@ package discountstrategy;
  * @author linhdo
  */
 public class DataSystemException extends Exception {
-    public static String msg = "Data could not find!";
+    public static String msg = "Incorrect! Data could not be found!";
     public DataSystemException() {
         super(msg);
     }
