@@ -35,15 +35,15 @@ public class Employee {
         setFirstName(firstName);
         setLastName(lastName);
         setSsn(ssn);
-        this.daysVacation = daysVacation;
+       setDaysVacation(daysVacation);
     }
     
-    public int getDaysVacation() {
+    public final int getDaysVacation() {
         return daysVacation;
     }
     //Validation rules:
     //daysVacation must be between 0 and 120 inclusive
-    public void setDaysVacation(int daysVacation)throws IllegalArgumentException {
+    public final void setDaysVacation(int daysVacation)throws IllegalArgumentException {
         //need validation
         if(daysVacation <0 || daysVacation >120) {
             throw new IllegalArgumentException("Argument out of range.");
@@ -51,15 +51,13 @@ public class Employee {
         this.daysVacation = daysVacation;
     }
 
-    public String getFirstName() {
+    public final String getFirstName() {
         return firstName;
     }
     //validate same as lastName
     public final void setFirstName(String firstName) {
-       if(firstName == null){
+       if(firstName == null || firstName.isEmpty()){
            throw new IllegalArgumentException("Last name must not have null values.");
-       }if(firstName.isEmpty()){
-           throw new IllegalArgumentException("Last name cannot be empty.");
        }if(firstName.length()>50){
            throw new IllegalArgumentException("Last name cannot have more than 50 characters.");
        }if(firstName.contains(" ")){
@@ -69,7 +67,7 @@ public class Employee {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    public final String getLastName() {
         return lastName;
     }
     //Validation rules:
@@ -79,7 +77,7 @@ public class Employee {
     //no name should start with/ be exclusively spaces
     //names must only contain alphabet or numberic characters, plus appstrophe,
     //plus hyphens
-    public void setLastName(String lastName) throws IllegalArgumentException  {
+    public final void setLastName(String lastName) throws IllegalArgumentException  {
         //need validation
        if(lastName == null){
            throw new IllegalArgumentException("Last name must not have null values.");
@@ -106,7 +104,7 @@ public class Employee {
     //only allow 2 hyphens
     //cannot all be zero
     //
-    public void setSsn(String ssn) {
+    public final void setSsn(String ssn) {
         String [] parts = ssn.split("-");
         if(ssn == null){
            throw new IllegalArgumentException("Social Security Number must not have null values.");

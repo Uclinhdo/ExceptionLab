@@ -21,12 +21,13 @@ public class NameService {
     public String extractLastName(String fullName) throws YourCustomerExceptionName {
         String lastName = null;
          // put your code here
-        String parts[] = fullName.split(" ");
-        if(lastName == null || lastName.isEmpty())
+         if(fullName == null || fullName.isEmpty())
         {
          throw new YourCustomerExceptionName();  
         }
-        if(fullName == null || fullName.isEmpty() || parts.length < 1 || parts.length > 3)
+        String parts[] = fullName.split(" ");
+        
+        if( parts.length < 2 || parts.length > 3)
         {
             throw new YourCustomerExceptionName();
         }

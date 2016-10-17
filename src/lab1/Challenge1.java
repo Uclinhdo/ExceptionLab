@@ -41,16 +41,20 @@ public class Challenge1 {
     public String extractLastName(String fullName) throws IllegalArgumentException {
         //String lastName = fullName.substring(LAST_NAME_IDX);
         String lastName = null;
+        if(fullName == null || fullName.isEmpty()){
+            throw new IllegalArgumentException("Full name is mandatory.");
+        }
         String [] parts = fullName.split(" ");
-        if(lastName == null || lastName.isEmpty()){
-            throw new IllegalArgumentException("Last name must not have null values, or be empty.");
-        }
+       
         // Your code goes here. Assign your value to lastName
-        if(fullName == null || fullName.isEmpty() || parts.length < 1 || parts.length > 3){
+        if(parts.length < 2 || parts.length > 3){
             throw new IllegalArgumentException("Full name must contain at least 2 parts.");
-        }else{
-            lastName = parts[parts.length -1];
         }
+        if(parts.length == 2){
+           lastName = parts[parts.length - 1];
+        }else if(parts.length == 3) {   
+        lastName = parts[parts.length - 2] + parts[parts.length - 1] ;
+         }
         return lastName;
     }
 

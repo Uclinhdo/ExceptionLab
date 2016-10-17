@@ -22,12 +22,13 @@ public class NameService {
         String lastName = "";
         // write your code here to extract the lastName and store in the
         // above local variable
-        String parts[] = fullName.split(" ");
-        if(lastName == null || lastName.isEmpty())
+         if(fullName == null || fullName.isEmpty())
         {
             throw new IllegalArgumentException("Last name must not have null or empty value");
         }
-        if(fullName == null || fullName.isEmpty() || parts.length < 1 || parts.length > 3)
+        String parts[] = fullName.split(" ");
+       
+        if(parts.length < 2 || parts.length > 3)
         {
             throw new IllegalArgumentException("Full name must contain at least 2 parts.");
         }else{
